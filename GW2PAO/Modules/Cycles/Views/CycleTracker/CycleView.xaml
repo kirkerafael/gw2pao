@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="GW2PAO.Views.Cycles.CycleTracker.CycleView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:src="clr-namespace:GW2PAO.Views"
+			 xmlns:resx="clr-namespace:GW2PAO.Properties"
+			 xmlns:converters="clr-namespace:GW2PAO.Converters"
+			 xmlns:core="clr-namespace:GW2PAO.PresentationCore;assembly=GW2PAO.PresentationCore"
+			 mc:Ignorable="d" d:DesignWidth="200"
+			 Height="20"
+			 UseLayoutRounding="True"
+			 SnapsToDevicePixels="True"
+			 TextOptions.TextFormattingMode="Display"
+			 MouseDown="UserControl_MouseDown"
+			 ToolTipService.InitialShowDelay="0">
+
+	<UserControl.Resources>
+		<converters:TimespanConverter x:Key="TimeConverter" />
+		<BooleanToVisibilityConverter x:Key="BoolToVisiblityConverter" />
+	</UserControl.Resources>
+
+	<UserControl.ContextMenu>
+		<ContextMenu>
+			<MenuItem Header="{x:Static resx:Resources.Hide}" Command="{Binding HideCommand}" />
+			<MenuItem Header="{x:Static resx:Resources.CopyWaypointCode}" Command="{Binding CopyWaypointCommand}" />
+		</ContextMenu>
+	</UserControl.ContextMenu>
+
+	<UserControl.ToolTip>
+		<StackPanel Orientation="Vertical">
+			<TextBlock Text="{Binding ZoneName, StringFormat={x:Static resx:Resources.LocatedInX}}" />
+			<TextBlock Text="{Binding TimeSinceActive, StringFormat={x:Static resx:Resources.LastActiveXAgo}, Converter={StaticResource TimeConverter}}" />
+		</StackPanel>
+	</UserControl.ToolTip>
+
+	<!--Note: DataContext is set by the CycleTrackerView-->
+	<Border Name="CycleMainPanel" CornerRadius="0" Margin="0,0,0,0" Padding="15,0,5,1"
+			Background="{StaticResource ItemMouseOverBackground}">
+
+		<Border.Style>
+			<Style TargetType="Border">
+				<Setter Property="Effect">
+					<Setter.Value>
+						<DropShadowEffect ShadowDepth="0" Color="LawnGreen"
+										  Opacity="0" BlurRadius="10" />
+					</Setter.Value>
+				</Setter>
+				<Style.Triggers>
+					<DataTrigger Binding="{Binding ElementName=CycleMainPanel, Path=IsMouseOver}" Value="True">
+						<DataTrigger.EnterActions>
+							<BeginStoryboard>
+								<Storyboard>
+									<DoubleAnimation To="1"
+													 Storyboard.TargetProperty="Background.Opacity"
+													 Duration="00:00:0.05" />
+								</Storyboard>
+							</BeginStoryboard>
+						</DataTrigger.EnterActions>
+						<DataTrigger.ExitActions>
+							<BeginStoryboard>
+								<Storyboard>
+									<DoubleAnimation To="0"
+													 Storyboard.TargetProperty="Background.Opacity"
+													 Duration="00:00:00.05" />
+								</Storyboard>
+							</BeginStoryboard>
+						</DataTrigger.ExitActions>
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+		</Border.Style>
+
+		<Grid Margin="0,1,0,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+			<core:OutlinedTextBlock Name="CycleName"
+									Grid.Row="0" Grid.Column="0"
+									VerticalAlignment="Center" HorizontalAlignment="Left"
+									FontSize="13"
+									Text="{Binding CycleName}" />
+
+			<Button Grid.Column="1"
+					HorizontalAlignment="Right" VerticalAlignment="Bottom"
+					Height="16"
+					Margin="0,0,10,0"
+					Command="{Binding CopyWaypointCommand}"
+					Visibility="{Binding UserData.ShowWaypointCopyButtons, Converter={StaticResource BoolToVisiblityConverter}}"
+					Style="{StaticResource WaypointButtonStyle}" />
+
+			<core:OutlinedTextBlock Name="TimerValue"
+									Grid.Row="0" Grid.Column="3"
+									VerticalAlignment="Center" HorizontalAlignment="Center"
+									FontSize="13"
+									Text="{Binding TimerValue, Converter={StaticResource TimeConverter}}" />
+		</Grid>
+	</Border>
+</UserControl>

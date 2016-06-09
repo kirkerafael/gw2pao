@@ -898,5 +898,89 @@ namespace GW2PAO.Properties {
                 this["MapViewWidth"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("125")]
+        public double CycleTrackerHeight {
+            get {
+                return ((double)(this["CycleTrackerHeight"]));
+            }
+            set {
+                this["CycleTrackerHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("250")]
+        public double CycleTrackerWidth {
+            get {
+                return ((double)(this["CycleTrackerWidth"]));
+            }
+            set {
+                this["CycleTrackerWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public double CycleTrackerX {
+            get {
+                return ((double)(this["CycleTrackerX"]));
+            }
+            set {
+                this["CycleTrackerX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public double CycleTrackerY {
+            get {
+                return ((double)(this["CycleTrackerY"]));
+            }
+            set {
+                this["CycleTrackerY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public double CycleNotificationX {
+            get {
+                return ((double)(this["CycleNotificationX"]));
+            }
+            set {
+                this["CycleNotificationX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public double CycleNotificationY {
+            get {
+                return ((double)(this["CycleNotificationY"]));
+            }
+            set {
+                this["CycleNotificationY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsCycleTrackerOpen {
+            get {
+                return ((bool)(this["IsCycleTrackerOpen"]));
+            }
+            set {
+                this["IsCycleTrackerOpen"] = value;
+            }
+        }
     }
 }

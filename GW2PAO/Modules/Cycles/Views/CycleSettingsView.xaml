@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="GW2PAO.Modules.Cycles.Views.CycleSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resx="clr-namespace:GW2PAO.Properties"
+             xmlns:core="clr-namespace:GW2PAO.PresentationCore;assembly=GW2PAO.PresentationCore"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             SnapsToDevicePixels="True"
+             UseLayoutRounding="True">
+	<UserControl.Resources>
+		<Style TargetType="CheckBox" BasedOn="{StaticResource AlternateCheckboxStyle}">
+			<Setter Property="Margin" Value="2" />
+		</Style>
+	</UserControl.Resources>
+	<StackPanel Margin="15,10,0,0">
+		<Grid Margin="10,0,0,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<CheckBox Name="NotificationsEnabledCheckbox"
+                      Margin="3"
+                      Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                      IsChecked="{Binding UserData.AreCycleNotificationsEnabled}">
+				<core:OutlinedTextBlock VerticalAlignment="Center"
+                                        Text="CycleNotifications" />
+			</CheckBox>
+			<core:OutlinedTextBlock Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding Source={x:Static resx:Resources.NotificationsDuration}, StringFormat={}{0}:}" />
+			<TextBox Margin="5"
+                     Grid.Column="2"
+                     Height="10" Width="35"
+                     Text="{Binding UserData.NotificationDuration, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<GroupBox Margin="0,0,5,10">
+			<GroupBox.Header>
+				<core:OutlinedTextBlock Text="CycleNotificationSettings" />
+			</GroupBox.Header>
+			<ItemsControl ItemsSource="{Binding UserData.NotificationSettings}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Grid Margin="3,3,10,3" MinWidth="235">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<CheckBox Grid.Column="0"
+                                      IsChecked="{Binding IsNotificationEnabled}">
+								<core:OutlinedTextBlock VerticalAlignment="Center"
+                                                        Text="{Binding CycleName}" />
+							</CheckBox>
+							<xctk:TimeSpanUpDown Grid.Column="1"
+                                                 HorizontalAlignment="Right"
+                                                 Width="65"
+                                                 Value="{Binding NotificationInterval}"
+                                                 Maximum="{Binding MaxNotificationInterval}"
+                                                 Minimum="{Binding MinNotificationInterval}"
+                                                 ToolTip="CycleNotificationConfigTooltip" />
+						</Grid>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+			<GroupBox.Style>
+				<Style TargetType="GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}">
+					<Setter Property="IsEnabled" Value="True" />
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding ElementName=NotificationsEnabledCheckbox, Path=IsChecked}">
+							<Setter Property="IsEnabled" Value="False" />
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</GroupBox.Style>
+		</GroupBox>
+	</StackPanel>
+</UserControl>

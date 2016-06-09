@@ -592,6 +592,33 @@ namespace GW2PAO.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cycle Notifications.
+        /// </summary>
+        public static string CycleNotifications {
+            get {
+                return ResourceManager.GetString("CycleNotifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle Notifications.
+        /// </summary>
+        public static string CycleNotificationSettings {
+            get {
+                return ResourceManager.GetString("CycleNotificationSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycles.
+        /// </summary>
+        public static string Cycles {
+            get {
+                return ResourceManager.GetString("Cycles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date.
         /// </summary>
         public static string Date {
@@ -1258,6 +1285,15 @@ namespace GW2PAO.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open Cycles Tracker.
+        /// </summary>
+        public static string OpenCyclesTracker {
+            get {
+                return ResourceManager.GetString("OpenCyclesTracker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Events Tracker.
         /// </summary>
         public static string OpenEventsTracker {
@@ -1479,6 +1515,15 @@ namespace GW2PAO.Properties {
         public static string ResetDaily {
             get {
                 return ResourceManager.GetString("ResetDaily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset hidden cycles.
+        /// </summary>
+        public static string ResetHiddenCycles {
+            get {
+                return ResourceManager.GetString("ResetHiddenCycles", resourceCulture);
             }
         }
         
@@ -1731,6 +1776,15 @@ namespace GW2PAO.Properties {
         public static string ShowGoldToGemsExchange {
             get {
                 return ResourceManager.GetString("ShowGoldToGemsExchange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show inactive cycles.
+        /// </summary>
+        public static string ShowInactiveCycles {
+            get {
+                return ResourceManager.GetString("ShowInactiveCycles", resourceCulture);
             }
         }
         

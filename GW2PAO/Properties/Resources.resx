@@ -984,4 +984,22 @@
   <data name="CompletedPerChar" xml:space="preserve">
     <value>Completed Per Character</value>
   </data>
+  <data name="CycleNotificationSettings" xml:space="preserve">
+    <value>Cycle Notifications</value>
+  </data>
+  <data name="Cycles" xml:space="preserve">
+    <value>Cycles</value>
+  </data>
+  <data name="ResetHiddenCycles" xml:space="preserve">
+    <value>Reset hidden cycles</value>
+  </data>
+  <data name="ShowInactiveCycles" xml:space="preserve">
+    <value>Show inactive cycles</value>
+  </data>
+  <data name="CycleNotifications" xml:space="preserve">
+    <value>Cycle Notifications</value>
+  </data>
+  <data name="OpenCyclesTracker" xml:space="preserve">
+    <value>Open Cycles Tracker</value>
+  </data>
 </root>
