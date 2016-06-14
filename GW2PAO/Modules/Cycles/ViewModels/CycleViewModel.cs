@@ -52,6 +52,8 @@ namespace GW2PAO.Modules.Cycles.ViewModels
 		/// </summary>
 		public string ZoneName { get { return this.CycleModel.MapName; } }
 
+		public int MapId { get { return this.CycleModel.WorldMapID; } }
+
 		///// <summary>
 		///// Current state of the cycle
 		///// </summary>
@@ -60,6 +62,8 @@ namespace GW2PAO.Modules.Cycles.ViewModels
 			get { return this.state; }
 			set { if (SetProperty(ref this.state, value)) this.RefreshVisibility(); }
 		}
+
+		public CycleSeverity Severity { get { return this.CycleModel.Severity; } }
 
 		/// <summary>
 		/// Depending on the state of the cycle, contains the
@@ -170,17 +174,28 @@ namespace GW2PAO.Modules.Cycles.ViewModels
 			if (this.UserData.HiddenCycles.Any(id => id == this.CycleId))
 			{
 				this.IsVisible = false;
-			} else if (!this.UserData.AreInactiveCyclesVisible
-					  && this.State == EventState.Inactive)
+			} else if (!this.UserData.AreInactiveCyclesVisible && this.State == EventState.Inactive)
+			{
+				this.IsVisible = false;
+			} else if (!this.UserData.AreResetCyclesVisible && this.Severity == CycleSeverity.None)
+			{
+				this.IsVisible = false;
+			} else if (!this.UserData.AreBuildupCyclesVisible && this.Severity == CycleSeverity.Buildup)
+			{
+				this.IsVisible = false;
+			} else if (!this.UserData.AreBossWarmupCyclesVisible && this.Severity == CycleSeverity.BossWarmup)
+			{
+				this.IsVisible = false;
+			} else if (!this.UserData.AreBossCyclesVisible && this.Severity == CycleSeverity.Boss)
 			{
 				this.IsVisible = false;
 			}
-			  //else if (!this.UserData.AreCompletedEventsVisible
-			  //        && this.IsTreasureObtained)
-			  //{
-			  //    this.IsVisible = false;
-			  //}
-			  else
+			//else if (!this.UserData.AreCompletedEventsVisible
+			//        && this.IsTreasureObtained)
+			//{
+			//    this.IsVisible = false;
+			//}
+			else
 			{
 				this.IsVisible = true;
 			}

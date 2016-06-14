@@ -29,8 +29,8 @@
 
 		<core:AutoRefreshCollectionViewSource Source="{Binding Cycles}" x:Key="CyclesView">
 			<CollectionViewSource.SortDescriptions>
-				<scm:SortDescription PropertyName="State" />
 				<scm:SortDescription PropertyName="TimerValue" />
+				<scm:SortDescription PropertyName="ZoneName" />
 			</CollectionViewSource.SortDescriptions>
 		</core:AutoRefreshCollectionViewSource>
 	</src:OverlayWindow.Resources>
@@ -62,10 +62,16 @@
 						VerticalAlignment="Center"
 						Height="30" Width="30"
 						Margin="0,0,0,0"
-						Source="/Images/Title/bosses.png"
+						Source="/Images/Title/cycles.png"
 						MouseDown="TitleImage_MouseDown">
 					<Image.ContextMenu>
 						<ContextMenu Name="MainMenu">
+							<MenuItem Header="ShowCycleSeverity">
+								<MenuItem Header="ShowBossEvents"  IsCheckable="True" IsChecked="{Binding UserData.AreBossCyclesVisible}"></MenuItem>
+								<MenuItem Header="ShowBossWarmupEvents" IsCheckable="True" IsChecked="{Binding UserData.AreBossWarmupCyclesVisible}"></MenuItem>
+								<MenuItem Header="ShowBuildupEvents" IsCheckable="True" IsChecked="{Binding UserData.AreBuildupCyclesVisible}"></MenuItem>
+								<MenuItem Header="ShowResetEvents" IsCheckable="True" IsChecked="{Binding UserData.AreResetCyclesVisible}"></MenuItem>
+							</MenuItem>
 							<MenuItem Header="ResetHiddenCycles" Command="{Binding ResetHiddenCyclesCommand}" />
 							<MenuItem Header="ShowInactiveCycles" IsCheckable="True" IsChecked="{Binding UserData.AreInactiveCyclesVisible}" />
 							<MenuItem Header="{x:Static resx:Resources.ShowWaypointCopyButtons}" IsCheckable="True" IsChecked="{Binding UserData.ShowWaypointCopyButtons}" />

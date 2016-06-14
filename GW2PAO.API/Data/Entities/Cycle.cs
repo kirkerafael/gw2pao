@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GW2PAO.API.Data.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace GW2PAO.API.Data.Entities
@@ -14,8 +15,6 @@ namespace GW2PAO.API.Data.Entities
 		public EventTimespan Recurrence { get; set; }
 		public EventTimespan Delay { get; set; }
 		public List<EventTimespan> ActiveTimes { get; set; }
-
-		//public EventTimespan Duration { get; set; }
-		public EventTimespan WarmupDuration { get; set; }
+		public CycleSeverity Severity { get; set; }
 	}
 }

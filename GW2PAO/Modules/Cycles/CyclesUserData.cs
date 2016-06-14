@@ -23,6 +23,10 @@ namespace GW2PAO.Modules.Cycles
 		public const string Filename = "CyclesUserData.xml";
 
 		private bool areInactiveCyclesVisible;
+		private bool areResetCyclesVisible;
+		private bool areBuildupCyclesVisible;
+		private bool areBossWarmupCyclesVisible;
+		private bool areBossCyclesVisible;
 		private bool showWaypointCopyButtons;
 		private bool areCycleNotificationsEnabled;
 		private uint notificationDuration;
@@ -37,6 +41,30 @@ namespace GW2PAO.Modules.Cycles
 		{
 			get { return this.areInactiveCyclesVisible; }
 			set { SetProperty(ref this.areInactiveCyclesVisible, value); }
+		}
+
+		public bool AreResetCyclesVisible
+		{
+			get { return this.areResetCyclesVisible; }
+			set { SetProperty(ref this.areResetCyclesVisible, value); }
+		}
+
+		public bool AreBuildupCyclesVisible
+		{
+			get { return this.areBuildupCyclesVisible; }
+			set { SetProperty(ref this.areBuildupCyclesVisible, value); }
+		}
+
+		public bool AreBossWarmupCyclesVisible
+		{
+			get { return this.areBossWarmupCyclesVisible; }
+			set { SetProperty(ref this.areBossWarmupCyclesVisible, value); }
+		}
+
+		public bool AreBossCyclesVisible
+		{
+			get { return this.areBossCyclesVisible; }
+			set { SetProperty(ref this.areBossCyclesVisible, value); }
 		}
 
 		/// <summary>
@@ -91,6 +119,10 @@ namespace GW2PAO.Modules.Cycles
 		public CyclesUserData()
 		{
 			this.AreInactiveCyclesVisible = true;
+			this.AreResetCyclesVisible = true;
+			this.AreBuildupCyclesVisible = true;
+			this.AreBossWarmupCyclesVisible = true;
+			this.AreBossCyclesVisible = true;
 			this.ShowWaypointCopyButtons = true;
 			this.AreCycleNotificationsEnabled = true;
 			this.NotificationDuration = 10;

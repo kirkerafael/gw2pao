@@ -1,5 +1,6 @@
 ﻿using GW2PAO.API.Constants;
 using GW2PAO.API.Data.Entities;
+using GW2PAO.API.Data.Enums;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -76,8 +77,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Verdant Brink Day",
 				ID = CycleID.VerdantBrinkDay,
-				WorldMapID = 1052,
+				WorldMapID = MapId.VerdantBrink,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.Buildup,
 				Length = new EventTimespan(1, 15, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(0, 30, 0)
@@ -87,8 +89,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Verdant Brink Night",
 				ID = CycleID.VerdantBrinkNight,
-				WorldMapID = 1052,
+				WorldMapID = MapId.VerdantBrink,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.BossWarmup,
 				Length = new EventTimespan(0, 25, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(1, 45, 0)
@@ -98,8 +101,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Verdant Brink Night Bosses",
 				ID = CycleID.VerdantBrinkNightBosses,
-				WorldMapID = 1052,
+				WorldMapID = MapId.VerdantBrink,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.Boss,
 				Length = new EventTimespan(0, 20, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(0, 10, 0)
@@ -109,8 +113,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Auric Basin Pillars",
 				ID = CycleID.AuricBasinPilars,
-				WorldMapID = 1043,
+				WorldMapID = MapId.AuricBasin,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.Buildup,
 				Length = new EventTimespan(1, 15, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(1, 30, 0)
@@ -120,8 +125,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Auric Basin Challenges",
 				ID = CycleID.AuricBasinChallenges,
-				WorldMapID = 1043,
+				WorldMapID = MapId.AuricBasin,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.BossWarmup,
 				Length = new EventTimespan(0, 15, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(0, 45, 0)
@@ -130,8 +136,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Auric Basin Octovine",
 				ID = CycleID.AuricBasinOctovine,
-				WorldMapID = 1043,
+				WorldMapID = MapId.AuricBasin,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.Boss,
 				Length = new EventTimespan(0, 20, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(1, 0, 0)
@@ -140,8 +147,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Auric Basin Reset",
 				ID = CycleID.AuricBasinReset,
-				WorldMapID = 1043,
+				WorldMapID = MapId.AuricBasin,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.None,
 				Length = new EventTimespan(0, 10, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(1, 20, 0)
@@ -150,8 +158,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Tangled Depths Outposts",
 				ID = CycleID.TangledDepthsOutposts,
-				WorldMapID = 1045,
+				WorldMapID = MapId.TangledDepths,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.Buildup,
 				Length = new EventTimespan(1, 35, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(0, 50, 0)
@@ -160,8 +169,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Tangled Depths Prep",
 				ID = CycleID.TangledDepthsPrep,
-				WorldMapID = 1045,
+				WorldMapID = MapId.TangledDepths,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.BossWarmup,
 				Length = new EventTimespan(0, 5, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(0, 25, 0)
@@ -170,8 +180,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Tangled Depths Gerent",
 				ID = CycleID.TangledDepthsGerent,
-				WorldMapID = 1045,
+				WorldMapID = MapId.TangledDepths,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.Boss,
 				Length = new EventTimespan(0, 20, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(0, 30, 0)
@@ -180,8 +191,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Dragon's Stand Start",
 				ID = CycleID.DragonsStandStart,
-				WorldMapID = 1041,
+				WorldMapID = MapId.DragonsStand,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.Boss,
 				Length = new EventTimespan(2, 0, 0),
 				Recurrence = new EventTimespan(2, 0, 0),
 				Delay = new EventTimespan(1, 30, 0)
@@ -190,8 +202,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Dry Top Crash",
 				ID = CycleID.DryTopCrash,
-				WorldMapID = 988,
+				WorldMapID = MapId.DryTop,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.Buildup,
 				Length = new EventTimespan(0, 40, 0),
 				Recurrence = new EventTimespan(1, 0, 0),
 				Delay = new EventTimespan(0, 0, 0)
@@ -200,8 +213,9 @@ namespace GW2PAO.API.Data
 			{
 				Name = "Dry Top Sandstorm",
 				ID = CycleID.DryTopSandstorm,
-				WorldMapID = 988,
+				WorldMapID = MapId.DryTop,
 				WaypointCode = "[&BM0CAAA=]",
+				Severity = CycleSeverity.Boss,
 				Length = new EventTimespan(0, 20, 0),
 				Recurrence = new EventTimespan(1, 0, 0),
 				Delay = new EventTimespan(0, 40, 0)

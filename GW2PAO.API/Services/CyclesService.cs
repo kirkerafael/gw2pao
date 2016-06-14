@@ -123,6 +123,9 @@ namespace GW2PAO.API.Services
 					&& timeSinceActive < c.Length.Time)
 				{
 					state = Data.Enums.EventState.Active;
+				} else if (timeUntilActive <= TimeSpan.FromMinutes(15))
+				{
+					state = Data.Enums.EventState.Preparation;
 				} else
 				{
 					state = Data.Enums.EventState.Inactive;

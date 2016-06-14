@@ -94,5 +94,17 @@ namespace GW2PAO.API.Data.Entities
 		{
 			return !(lhs == rhs);
 		}
+
+		public override bool Equals(object obj)
+		{
+			var obj_et = obj as EventTimespan;
+			if (obj_et == null) return base.Equals(obj);
+			return this == obj_et;
+		}
+
+		public override int GetHashCode()
+		{
+			return this.Time.GetHashCode();
+		}
 	}
 }
