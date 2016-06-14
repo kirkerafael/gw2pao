@@ -1969,6 +1969,15 @@ namespace GW2PAO.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Toggle Cycles Tracker.
+        /// </summary>
+        public static string ToggleCyclesTracker {
+            get {
+                return ResourceManager.GetString("ToggleCyclesTracker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Toggle Dungeons Tracker.
         /// </summary>
         public static string ToggleDungeonsTracker {

@@ -1002,4 +1002,7 @@
   <data name="OpenCyclesTracker" xml:space="preserve">
     <value>Open Cycles Tracker</value>
   </data>
+  <data name="ToggleCyclesTracker" xml:space="preserve">
+    <value>Toggle Cycles Tracker</value>
+  </data>
 </root>

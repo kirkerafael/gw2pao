@@ -27,6 +27,7 @@ namespace GW2PAO.ViewModels
 		private Hotkey toggleAutoFadeBordersHotkey;
 		private Hotkey toggleOverlayMenuIconHotkey;
 		private Hotkey toggleEventTrackerHotkey;
+		private Hotkey toggleCycleTrackerHotkey;
 		private Hotkey toggleDungeonsTrackerHotkey;
 		private Hotkey toggleDungeonTimerHotkey;
 		private Hotkey togglePriceTrackerHotkey;
@@ -107,6 +108,12 @@ namespace GW2PAO.ViewModels
 		{
 			get { return this.toggleEventTrackerHotkey; }
 			set { this.SetProperty(ref this.toggleEventTrackerHotkey, value); }
+		}
+
+		public Hotkey ToggleCycleTrackerHotkey
+		{
+			get { return this.toggleCycleTrackerHotkey; }
+			set { this.SetProperty(ref this.toggleCycleTrackerHotkey, value); }
 		}
 
 		/// <summary>
@@ -198,6 +205,7 @@ namespace GW2PAO.ViewModels
 		{
 			// Initialize as blank at first
 			this.ToggleEventTrackerHotkey = new Hotkey(Key.None, KeyModifier.None);
+			this.ToggleCycleTrackerHotkey = new Hotkey(Key.None, KeyModifier.None);
 			this.ToggleDungeonsTrackerHotkey = new Hotkey(Key.None, KeyModifier.None);
 			this.ToggleDungeonTimerHotkey = new Hotkey(Key.None, KeyModifier.None);
 			this.TogglePriceTrackerHotkey = new Hotkey(Key.None, KeyModifier.None);
@@ -238,6 +246,9 @@ namespace GW2PAO.ViewModels
 
 						if (loadedHotkeys.ToggleEventTrackerHotkey != null)
 							this.ToggleEventTrackerHotkey = loadedHotkeys.ToggleEventTrackerHotkey;
+
+						if (loadedHotkeys.ToggleCycleTrackerHotkey != null)
+							this.ToggleCycleTrackerHotkey = loadedHotkeys.ToggleCycleTrackerHotkey;
 
 						if (loadedHotkeys.ToggleDungeonsTrackerHotkey != null)
 							this.ToggleDungeonsTrackerHotkey = loadedHotkeys.ToggleDungeonsTrackerHotkey;
@@ -283,6 +294,7 @@ namespace GW2PAO.ViewModels
 			this.ToggleAutoFadeBordersHotkey.Pressed += (o, e) => HotkeyCommands.ToggleAutoFadeBordersCommand.Execute(null);
 			this.ToggleOverlayMenuIconHotkey.Pressed += (o, e) => HotkeyCommands.ToggleOverlayMenuIconCommand.Execute(null);
 			this.ToggleEventTrackerHotkey.Pressed += (o, e) => HotkeyCommands.ToggleEventTrackerCommand.Execute(null);
+			this.ToggleCycleTrackerHotkey.Pressed += (o, e) => HotkeyCommands.ToggleCycleTrackerCommand.Execute(null);
 			this.ToggleDungeonsTrackerHotkey.Pressed += (o, e) => HotkeyCommands.ToggleDungeonsTrackerCommand.Execute(null);
 			this.ToggleDungeonTimerHotkey.Pressed += (o, e) => HotkeyCommands.ToggleDungeonTimerCommand.Execute(null);
 			this.TogglePriceTrackerHotkey.Pressed += (o, e) => HotkeyCommands.TogglePriceTrackerCommand.Execute(null);
@@ -305,6 +317,8 @@ namespace GW2PAO.ViewModels
 				this.GlobalHotkeyManager.Register(this.ToggleOverlayMenuIconHotkey);
 			if (this.ToggleEventTrackerHotkey.Key != Key.None)
 				this.GlobalHotkeyManager.Register(this.ToggleEventTrackerHotkey);
+			if (this.ToggleCycleTrackerHotkey.Key != Key.None)
+				this.GlobalHotkeyManager.Register(this.ToggleCycleTrackerHotkey);
 			if (this.ToggleDungeonsTrackerHotkey.Key != Key.None)
 				this.GlobalHotkeyManager.Register(this.ToggleDungeonsTrackerHotkey);
 			if (this.ToggleDungeonTimerHotkey.Key != Key.None)

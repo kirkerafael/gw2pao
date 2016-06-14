@@ -13,6 +13,7 @@
 
 	<UserControl.Resources>
 		<converters:TimespanConverter x:Key="TimeConverter" />
+		<converters:CycleSeverityConverter x:Key="SeverityConverter" />
 
 		<Storyboard x:Key="AddAnimation">
 			<DoubleAnimation From="0" To="1" Storyboard.TargetProperty="Opacity" Duration="00:00:00.25" />
@@ -82,11 +83,11 @@
 				<Image Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Height="40" Width="40"
-                       Source="/Images/Title/bosses.png" />
+                       Source="/Images/Title/cycles.png" />
 				<Image Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        Height="20" Width="20"
-                       Source="/Images/Misc/treasure.png">
+                       Source="{Binding Severity, Converter={StaticResource SeverityConverter}}">
 					<Image.Effect>
 						<DropShadowEffect Color="Goldenrod" BlurRadius="10" ShadowDepth="0" />
 					</Image.Effect>
