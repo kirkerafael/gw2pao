@@ -1600,6 +1600,15 @@ namespace GW2PAO.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ROI:.
+        /// </summary>
+        public static string ROI {
+            get {
+                return ResourceManager.GetString("ROI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sale Fee:.
         /// </summary>
         public static string SaleFee {

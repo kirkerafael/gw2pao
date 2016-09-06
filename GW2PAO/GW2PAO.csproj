@@ -310,27 +310,6 @@
       <DependentUpon>DungeonTimerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Events\EventNotificationSettings.cs" />
-    <Compile Include="Modules\Map\Converters\ContinentCoordToTileCoordConverter.cs" />
-    <Compile Include="Modules\Map\Converters\ZoomToItemSizeConverter.cs" />
-    <Compile Include="Modules\Map\Interfaces\IHasMapLocation.cs" />
-    <Compile Include="Modules\Map\Interfaces\IMapViewController.cs" />
-    <Compile Include="Modules\Map\MapMenu.cs" />
-    <Compile Include="Modules\Map\MapModule.cs" />
-    <Compile Include="Modules\Map\MapUserData.cs" />
-    <Compile Include="Modules\Map\MapViewController.cs" />
-    <Compile Include="Modules\Map\Models\MapMarker.cs" />
-    <Compile Include="Modules\Map\ViewModels\CharacterPointerViewModel.cs" />
-    <Compile Include="Modules\Map\ViewModels\MarkersViewModel.cs" />
-    <Compile Include="Modules\Map\ViewModels\ZoneItemsViewModel.cs" />
-    <Compile Include="Modules\Map\Views\Controls\MapSettingControl.xaml.cs">
-      <DependentUpon>MapSettingControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\ZoneCompletion\Models\ZoneItemsStore.cs" />
-    <Compile Include="Modules\Map\ViewModels\MapViewModel.cs" />
-    <Compile Include="Modules\Map\Views\Controls\Map.cs" />
-    <Compile Include="Modules\Map\Views\MapView.xaml.cs">
-      <DependentUpon>MapView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Modules\Tasks\Interfaces\IPlayerTasksController.cs" />
     <Compile Include="Modules\Tasks\Interfaces\IPlayerTasksViewController.cs" />
     <Compile Include="Modules\Tasks\Models\PlayerTask.cs" />
@@ -625,14 +604,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\Map\Views\Controls\MapSettingControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Modules\Map\Views\MapView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Modules\Tasks\Views\AddNewTaskDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -678,10 +649,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Style\Images\Spinners.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Style\Images\CharacterPointer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -979,33 +946,6 @@
     <Resource Include="Images\Zone\heropoint.png" />
     <Resource Include="Images\Zone\Gray\heropoint.png" />
     <Resource Include="Images\Backgrounds\Tooltip1.png" />
-    <Resource Include="Images\Map\Markers\harvestingNode.png" />
-    <Resource Include="Images\Map\Markers\loggingNode.png" />
-    <Resource Include="Images\Map\Markers\miningNode.png" />
-    <Resource Include="Images\Map\Markers\activity.png" />
-    <Resource Include="Images\Map\Markers\adventure.png" />
-    <Resource Include="Images\Map\Markers\anvil.png" />
-    <Resource Include="Images\Map\Markers\blueSiege.png" />
-    <Resource Include="Images\Map\Markers\blueStar.png" />
-    <Resource Include="Images\Map\Markers\book.png" />
-    <Resource Include="Images\Map\Markers\downedAlly.png" />
-    <Resource Include="Images\Map\Markers\downedEnemy.png" />
-    <Resource Include="Images\Map\Markers\dragon.png" />
-    <Resource Include="Images\Map\Markers\greenFlag.png" />
-    <Resource Include="Images\Map\Markers\greenStar.png" />
-    <Resource Include="Images\Map\Markers\orangeShield.png" />
-    <Resource Include="Images\Map\Markers\orangeStar.png" />
-    <Resource Include="Images\Map\Markers\parchment.png" />
-    <Resource Include="Images\Map\Markers\pointA.png" />
-    <Resource Include="Images\Map\Markers\pointB.png" />
-    <Resource Include="Images\Map\Markers\pointC.png" />
-    <Resource Include="Images\Map\Markers\quaggan.png" />
-    <Resource Include="Images\Map\Markers\redShield.png" />
-    <Resource Include="Images\Map\Markers\redSiege.png" />
-    <Resource Include="Images\Map\Markers\swords.png" />
-    <Resource Include="Images\Map\Markers\trophy.png" />
-    <Resource Include="Images\Map\Markers\yellowStar.png" />
-    <Resource Include="Images\Map\Markers\yellowStar2.png" />
     <Resource Include="Images\Misc\boss.png" />
     <Resource Include="Images\Title\cycles.png" />
     <Resource Include="Images\Misc\buildup.png" />
@@ -1035,9 +975,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Tasks\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Zone\hearts.png" />
   </ItemGroup>

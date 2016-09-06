@@ -16,8 +16,6 @@ using GW2PAO.Modules.ZoneCompletion.Interfaces;
 using GW2PAO.Modules.ZoneCompletion.ViewModels;
 using GW2PAO.Utility;
 using NLog;
-using Microsoft.Practices.Prism.Mvvm;
-using GW2PAO.API.Data.Entities;
 
 namespace GW2PAO.Modules.ZoneCompletion
 {
@@ -25,15 +23,8 @@ namespace GW2PAO.Modules.ZoneCompletion
     /// The Zone Completion Assistant controller. Handles refresh of current zone and zone point locations
     /// </summary>
     [Export(typeof(IZoneCompletionController))]
-    public class ZoneCompletionController : BindableBase, IZoneCompletionController
+    public class ZoneCompletionController : IZoneCompletionController
     {
-        private bool validMapId;
-        private int currentMapId;
-        private API.Data.Entities.Point characterPosition;
-        private API.Data.Entities.Point cameraDirection;
-        private API.Data.Entities.Continent continent;
-        private API.Data.Entities.Map map;
-
         /// <summary>
         /// Default logger
         /// </summary>
@@ -93,7 +84,7 @@ namespace GW2PAO.Modules.ZoneCompletion
         /// <summary>
         /// Dictionary of counters for auto-unlock purposes
         /// </summary>
-        private Dictionary<int, int> distanceCounters = new Dictionary<int, int>();
+        private Dictionary<int, int> playerInProximityCounters = new Dictionary<int, int>();
 
         /// <summary>
         /// Backing store for the zone items collection
@@ -116,42 +107,6 @@ namespace GW2PAO.Modules.ZoneCompletion
         public string CharacterName { get; private set; }
 
         /// <summary>
-        /// The current character's position
-        /// </summary>
-        public API.Data.Entities.Point CharacterPosition
-        {
-            get { return this.characterPosition; }
-            private set { SetProperty(ref this.characterPosition, value); }
-        }
-
-        /// <summary>
-        /// The current player's camera direction
-        /// </summary>
-        public API.Data.Entities.Point CameraDirection
-        {
-            get { return this.cameraDirection; }
-            private set { SetProperty(ref this.cameraDirection, value); }
-        }
-
-        /// <summary>
-        /// The active continent that the player is in
-        /// </summary>
-        public API.Data.Entities.Continent ActiveContinent
-        {
-            get { return this.continent; }
-            private set { SetProperty(ref this.continent, value); }
-        }
-
-        /// <summary>
-        /// The active map that the player is in
-        /// </summary>
-        public API.Data.Entities.Map ActiveMap
-        {
-            get { return this.map; }
-            set { SetProperty(ref this.map, value); }
-        }
-
-        /// <summary>
         /// The zone completion user data
         /// </summary>
         public ZoneCompletionUserData UserData { get; private set; }
@@ -167,22 +122,9 @@ namespace GW2PAO.Modules.ZoneCompletion
         public int LocationsRefreshInterval { get; set; }
 
         /// <summary>
-        /// True if a valid map ID for the player is available, else false
-        /// </summary>
-        public bool ValidMapID
-        {
-            get { return this.validMapId; }
-            set { SetProperty(ref this.validMapId, value); }
-        }
-
-        /// <summary>
         /// The ID of the current map/zone
         /// </summary>
-        public int CurrentMapID
-        {
-            get { return this.currentMapId; }
-            set { SetProperty(ref this.currentMapId, value); }
-        }
+        public int CurrentMapID { get; private set; }
 
         /// <summary>
         /// Default constructor
@@ -201,9 +143,6 @@ namespace GW2PAO.Modules.ZoneCompletion
             this.systemService = systemService;
             this.zoneNameObject = zoneNameObject;
             this.isStopped = false;
-
-            this.CharacterPosition = new API.Data.Entities.Point();
-            this.CameraDirection = new API.Data.Entities.Point();
 
             this.UserData = userData;
 
@@ -232,7 +171,7 @@ namespace GW2PAO.Modules.ZoneCompletion
                     this.isStopped = false;
                     logger.Debug("Starting refresh timers");
                     this.RefreshZone();
-                    this.RefreshLocations(null);
+                    this.RefreshLocations();
                 }
 
                 this.startCallCount++;
@@ -297,8 +236,6 @@ namespace GW2PAO.Modules.ZoneCompletion
                 if (this.isStopped)
                     return; // Immediately return if we are supposed to be stopped
 
-                Threading.BeginInvokeOnUI(() => this.ValidMapID = this.playerService.HasValidMapId);
-
                 if (this.systemService.IsGw2Running && this.playerService.HasValidMapId)
                 {
                     // Check to see if the MapId or Character Name has changed, if so, we need to clear our zone items and add the new ones
@@ -309,28 +246,20 @@ namespace GW2PAO.Modules.ZoneCompletion
                         this.CurrentMapID = this.playerService.MapId;
                         this.CharacterName = this.playerService.CharacterName;
 
-                        var continent = this.zoneService.GetContinentByMap(this.CurrentMapID);
-                        var map = this.zoneService.GetMap(this.CurrentMapID);
-                        Threading.BeginInvokeOnUI(() =>
-                        {
-                            this.ActiveContinent = continent;
-                            this.ActiveMap = map;
-                        });
-
                         var zoneItems = this.zoneService.GetZoneItems(this.playerService.MapId);
                         lock (zoneItemsLock)
                         {
                             Threading.InvokeOnUI(() =>
                             {
                                 this.ZoneItems.Clear();
-                                this.distanceCounters.Clear();
+                                this.playerInProximityCounters.Clear();
                                 foreach (var item in zoneItems)
                                 {
                                     // Ignore dungeons for now
                                     if (item.Type != API.Data.Enums.ZoneItemType.Dungeon)
                                     {
                                         this.ZoneItems.Add(new ZoneItemViewModel(item, this.playerService, this.UserData));
-                                        this.distanceCounters.Add(item.ID, 0);
+                                        this.playerInProximityCounters.Add(item.ID, 0);
                                     }
                                 }
                             });
@@ -361,20 +290,23 @@ namespace GW2PAO.Modules.ZoneCompletion
                 if (this.isStopped)
                     return; // Immediately return if we are supposed to be stopped
 
-                var playerPos = this.playerService.PlayerPosition;
-                var cameraDir = this.playerService.CameraDirection;
+                API.Data.Entities.Point playerPos = null;
+                API.Data.Entities.Point cameraDir = null;
+                try
+                {
+                    playerPos = this.playerService.PlayerPosition;
+                    cameraDir = this.playerService.CameraDirection;
+                }
+                catch (ObjectDisposedException)
+                {
+                    // The player service is disposed!
+                    return;
+                }
+
                 if (playerPos != null && cameraDir != null)
                 {
                     var playerMapPosition = CalcUtil.ConvertToMapPosition(playerPos);
                     var cameraDirectionMapPosition = CalcUtil.ConvertToMapPosition(cameraDir);
-
-                    Threading.BeginInvokeOnUI(() =>
-                    {
-                        if (playerMapPosition.X != this.CharacterPosition.X && playerMapPosition.Y != this.CharacterPosition.Y)
-                            this.CharacterPosition = playerMapPosition;
-                        if (cameraDirectionMapPosition.X != this.CameraDirection.X && cameraDirectionMapPosition.Y != this.CameraDirection.Y)
-                            this.CameraDirection = cameraDirectionMapPosition;
-                    });
 
                     lock (this.zoneItemsLock)
                     {
@@ -419,57 +351,57 @@ namespace GW2PAO.Modules.ZoneCompletion
                                         if (this.UserData.AutoUnlockVistas
                                             && ftDistance >= 0 && ftDistance < 8)
                                         {
-                                            if (this.distanceCounters[item.ItemId] > 4)
+                                            if (this.playerInProximityCounters[item.ItemId] > 4)
                                             {
-                                                this.distanceCounters[item.ItemId] = 0;
+                                                this.playerInProximityCounters[item.ItemId] = 0;
                                                 Threading.InvokeOnUI(() => item.IsUnlocked = true);
                                             }
                                             else
                                             {
-                                                this.distanceCounters[item.ItemId] += 1;
+                                                this.playerInProximityCounters[item.ItemId] += 1;
                                             }
                                         }
                                         else
                                         {
-                                            this.distanceCounters[item.ItemId] = 0;
+                                            this.playerInProximityCounters[item.ItemId] = 0;
                                         }
                                         break;
                                     case API.Data.Enums.ZoneItemType.HeartQuest:
                                         if (this.UserData.AutoUnlockHeartQuests
                                             && ftDistance >= 0 && ftDistance < 400)
                                         {
-                                            if (this.distanceCounters[item.ItemId] > 90)
+                                            if (this.playerInProximityCounters[item.ItemId] > 90)
                                             {
-                                                this.distanceCounters[item.ItemId] = 0;
+                                                this.playerInProximityCounters[item.ItemId] = 0;
                                                 Threading.InvokeOnUI(() => item.IsUnlocked = true);
                                             }
                                             else
                                             {
-                                                this.distanceCounters[item.ItemId] += 1;
+                                                this.playerInProximityCounters[item.ItemId] += 1;
                                             }
                                         }
                                         else
                                         {
-                                            this.distanceCounters[item.ItemId] = 0;
+                                            this.playerInProximityCounters[item.ItemId] = 0;
                                         }
                                         break;
                                     case API.Data.Enums.ZoneItemType.HeroPoint:
                                         if (this.UserData.AutoUnlockSkillChallenges
                                             && ftDistance >= 0 && ftDistance < 25)
                                         {
-                                            if (this.distanceCounters[item.ItemId] > 15)
+                                            if (this.playerInProximityCounters[item.ItemId] > 15)
                                             {
-                                                this.distanceCounters[item.ItemId] = 0;
+                                                this.playerInProximityCounters[item.ItemId] = 0;
                                                 Threading.InvokeOnUI(() => item.IsUnlocked = true);
                                             }
                                             else
                                             {
-                                                this.distanceCounters[item.ItemId] += 1;
+                                                this.playerInProximityCounters[item.ItemId] += 1;
                                             }
                                         }
                                         else
                                         {
-                                            this.distanceCounters[item.ItemId] = 0;
+                                            this.playerInProximityCounters[item.ItemId] = 0;
                                         }
                                         break;
                                     default:
