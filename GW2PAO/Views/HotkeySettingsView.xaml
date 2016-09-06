@@ -1,64 +1,67 @@
 ﻿<UserControl x:Class="GW2PAO.Views.HotkeySettingsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:resx="clr-namespace:GW2PAO.Properties"
              xmlns:views="clr-namespace:GW2PAO.Views"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              SnapsToDevicePixels="True"
              UseLayoutRounding="True">
-    <UserControl.Resources>
-        <Style TargetType="views:HotkeyUserControl">
-            <Setter Property="Margin" Value="5,1,1,1" />
-        </Style>
-    </UserControl.Resources>
-    <StackPanel Margin="15,10,0,0"
+	<UserControl.Resources>
+		<Style TargetType="views:HotkeyUserControl">
+			<Setter Property="Margin" Value="5,1,1,1" />
+		</Style>
+	</UserControl.Resources>
+	<StackPanel Margin="15,10,0,0"
                 Width="600"
                 HorizontalAlignment="Stretch">
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleAllWindows}"
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleAllWindows}"
                                  Hotkey="{Binding ToggleAllWindowsHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleEventsTracker}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleEventsTracker}"
                                  Hotkey="{Binding ToggleEventTrackerHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleDungeonsTracker}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="ToggleCyclesTracker"
+                                 Hotkey="{Binding ToggleCycleTrackerHotkey}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleDungeonsTracker}"
                                  Hotkey="{Binding ToggleDungeonsTrackerHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleDungeonTimer}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleDungeonTimer}"
                                  Hotkey="{Binding ToggleDungeonTimerHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.TogglePriceTracker}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.TogglePriceTracker}"
                                  Hotkey="{Binding TogglePriceTrackerHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleWvWTracker}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleWvWTracker}"
                                  Hotkey="{Binding ToggleWvWTrackerHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleZoneCompletionAssistant}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleZoneCompletionAssistant}"
                                  Hotkey="{Binding ToggleZoneAssistantHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleTeamspeakOverlay}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleTeamspeakOverlay}"
                                  Hotkey="{Binding ToggleTeamspeakTrackerHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleTasksTracker}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleTasksTracker}"
                                  Hotkey="{Binding ToggleTaskTrackerHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleWebBrowser}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleWebBrowser}"
                                  Hotkey="{Binding ToggleWebBrowserHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
 
-        <views:HotkeyUserControl Margin="5,20,1,1"
+		<views:HotkeyUserControl Margin="5,20,1,1"
                                  Label="{x:Static resx:Resources.ToggleNonInteractiveWindow}"
                                  Hotkey="{Binding ToggleInteractiveWindowsHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleNotificationBorders}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleNotificationBorders}"
                                  Hotkey="{Binding ToggleNotificationWindowBordersHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleAutoFadeBorders}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleAutoFadeBorders}"
                                  Hotkey="{Binding ToggleAutoFadeBordersHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-        <views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleOverlayMenuIcon}"
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+		<views:HotkeyUserControl Label="{x:Static resx:Resources.ToggleOverlayMenuIcon}"
                                  Hotkey="{Binding ToggleOverlayMenuIconHotkey}"
-                                 HotkeyManager="{Binding GlobalHotkeyManager}"/>
-    </StackPanel>
+                                 HotkeyManager="{Binding GlobalHotkeyManager}" />
+	</StackPanel>
 </UserControl>

@@ -38,62 +38,63 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 ; Common files:
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\AdjustedEventTimeTable.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\AnetCopyright.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Dungeons.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\NLog.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\StandardEventTimeTable.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\ThirdPartyLicenses.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\WvWObjectives.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Tasks\CopperNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Tasks\CypressNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Tasks\DailyCrafting.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Tasks\GoldNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Tasks\IronNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Tasks\OrichalcumNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Tasks\PlatinumNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Tasks\SilverNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Tasks\SilverwastesChests.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\de\DungeonNames.xml"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\de\EventNames.xml"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\de\GW2PAO.resources.dll"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\de\ItemDatabase.json"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\de\WvWObjectiveNames.xml"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\en\DungeonNames.xml"; DestDir: "{app}\Locale\en"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\en\EventNames.xml"; DestDir: "{app}\Locale\en"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\en\ItemDatabase.json"; DestDir: "{app}\Locale\en"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\en\WvWObjectiveNames.xml"; DestDir: "{app}\Locale\en"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\es\DungeonNames.xml"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\es\EventNames.xml"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\es\GW2PAO.resources.dll"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\es\ItemDatabase.json"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\es\WvWObjectiveNames.xml"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\fr\DungeonNames.xml"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\fr\EventNames.xml"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\fr\GW2PAO.resources.dll"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\fr\ItemDatabase.json"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\fr\WvWObjectiveNames.xml"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\Locale\ru\GW2PAO.resources.dll"; DestDir: "{app}\Locale\ru"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\AdjustedEventTimeTable.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\AnetCopyright.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Dungeons.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\NLog.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\StandardEventTimeTable.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\ThirdPartyLicenses.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\WvWObjectives.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Tasks\CopperNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Tasks\CypressNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Tasks\DailyCrafting.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Tasks\GoldNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Tasks\IronNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Tasks\OrichalcumNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Tasks\PlatinumNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Tasks\SilverNodes.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Tasks\SilverwastesChests.xml"; DestDir: "{app}\Tasks"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\de\DungeonNames.xml"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\de\EventNames.xml"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\de\GW2PAO.resources.dll"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\de\ItemDatabase.json"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\de\WvWObjectiveNames.xml"; DestDir: "{app}\Locale\de"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\en\DungeonNames.xml"; DestDir: "{app}\Locale\en"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\en\EventNames.xml"; DestDir: "{app}\Locale\en"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\en\ItemDatabase.json"; DestDir: "{app}\Locale\en"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\en\WvWObjectiveNames.xml"; DestDir: "{app}\Locale\en"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\es\DungeonNames.xml"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\es\EventNames.xml"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\es\GW2PAO.resources.dll"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\es\ItemDatabase.json"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\es\WvWObjectiveNames.xml"; DestDir: "{app}\Locale\es"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\fr\DungeonNames.xml"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\fr\EventNames.xml"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\fr\GW2PAO.resources.dll"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\fr\ItemDatabase.json"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\fr\WvWObjectiveNames.xml"; DestDir: "{app}\Locale\fr"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Locale\ru\GW2PAO.resources.dll"; DestDir: "{app}\Locale\ru"; Flags: ignoreversion
 ; No Browser files:
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\GW2PAO.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\GW2PAO\bin\x86\Release_WithoutBrowser\GW2PAO.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\GW2PAO.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\GW2PAO.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 ; Full Install files:
-Source: "..\GW2PAO\bin\x86\Release\avcodec-53.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\avformat-53.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\avutil-51.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\Awesomium.Core.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\awesomium.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\Awesomium.Windows.Controls.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\awesomium_process"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\GW2PAO.exe"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\GW2PAO.exe.config"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\icudt.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\inspector.pak"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\libEGL.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\libGLESv2.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\pdf_js.pak"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
-Source: "..\GW2PAO\bin\x86\Release\xinput9_1_0.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\avcodec-53.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\avformat-53.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\avutil-51.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\Awesomium.Core.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\awesomium.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\Awesomium.Windows.Controls.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\awesomium_process"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\GW2PAO.exe"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\GW2PAO.exe.config"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\icudt.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\inspector.pak"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\libEGL.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\libGLESv2.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\pdf_js.pak"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release\xinput9_1_0.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: Browser
+Source: "..\GW2PAO\bin\Release_WithoutBrowser\Cycles.xml"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppNameShort}"; Filename: "{app}\{#MyAppExeName}"
