@@ -215,13 +215,13 @@
       <WorldMapID>988</WorldMapID>
       <WaypointCode>[&amp;BLQJAAA=]</WaypointCode>
       <Length>
-        <Time>00:30:00</Time>
+        <Time>00:15:00</Time>
       </Length>
       <Recurrence>
         <Time>02:00:00</Time>
       </Recurrence>
       <Delay>
-        <Time>00:00:00</Time>
+        <Time>01:45:00</Time>
       </Delay>
       <Severity>Boss</Severity>
     </Cycle>
@@ -231,7 +231,39 @@
       <WorldMapID>0</WorldMapID>
       <WaypointCode>[&amp;BK8JAAA=]</WaypointCode>
       <Length>
+        <Time>00:15:00</Time>
+      </Length>
+      <Recurrence>
+        <Time>02:00:00</Time>
+      </Recurrence>
+      <Delay>
         <Time>00:30:00</Time>
+      </Delay>
+      <Severity>Boss</Severity>
+    </Cycle>
+    <Cycle>
+      <Name>Lake Doric Saidra's Haven</Name>
+      <ID>00000000-0000-0000-0000-000000000000</ID>
+      <WorldMapID>0</WorldMapID>
+      <WaypointCode>[&amp;BK0JAAA=]</WaypointCode>
+      <Length>
+        <Time>00:15:00</Time>
+      </Length>
+      <Recurrence>
+        <Time>02:00:00</Time>
+      </Recurrence>
+      <Delay>
+        <Time>01:00:00</Time>
+      </Delay>
+      <Severity>Boss</Severity>
+    </Cycle>
+    <Cycle>
+      <Name>Lake Doric Noran's Homestead</Name>
+      <ID>00000000-0000-0000-0000-000000000000</ID>
+      <WorldMapID>0</WorldMapID>
+      <WaypointCode>[&amp;BK8JAAA=]</WaypointCode>
+      <Length>
+        <Time>00:15:00</Time>
       </Length>
       <Recurrence>
         <Time>02:00:00</Time>
